@@ -1,0 +1,8 @@
+name = "landing-oliv"
+compatibility_date = "2024-03-11"
+
+[assets]
+directory = "./dist"
+
+[assets.serving]
+not_found_handling = "single-page-application"

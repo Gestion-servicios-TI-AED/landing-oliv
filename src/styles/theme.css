@@ -1,0 +1,83 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #F9F7F2;
+  --foreground: #6a1533;
+  --card: #ffffff;
+  --card-foreground: #6a1533;
+  --popover: #ffffff;
+  --popover-foreground: #6a1533;
+  --primary: #6a1533;
+  --primary-foreground: #F9F7F2;
+  --secondary: #F9F7F2;
+  --secondary-foreground: #6a1533;
+  --muted: #f3f3f5;
+  --muted-foreground: #717182;
+  --accent: #ef8000;
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(106, 21, 51, 0.1);
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #ef8000;
+  --radius: 0.625rem;
+
+  --color-wine: #6a1533;
+  --color-sand: #F9F7F2;
+  --color-olive-btn: #ef8000;
+}
+
+.dark {
+  --background: #1a050d;
+  --foreground: #F9F7F2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-brand-wine: var(--color-wine);
+  --color-brand-sand: var(--color-sand);
+  --color-brand-accent: var(--color-olive-btn);
+
+  --font-serif: "Baskervville", serif;
+  --font-sans: "Helvetica", "Inter", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
