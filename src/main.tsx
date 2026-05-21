@@ -6,8 +6,8 @@ import "./styles/index.css";
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navigate to="/politica" replace />} />
-      <Route path="/politica" element={<App />} />
+      <Route path="/" element={<Navigate to="/politica-de-tratamiento-de-datos" replace />} />
+      <Route path="/politica-de-tratamiento-de-datos" element={<App />} />
     </Routes>
   </BrowserRouter>
 );
