@@ -15,7 +15,7 @@ export default function BrochureDigital() {
       <Navbar />
       <div style={{ paddingTop: navHeight }}>
         <iframe
-          src="/OLIV_AyudaVentas_v6_final (10).html"
+          src="/brochure-digital.html"
           title="Brochure Digital OLIV"
           style={{
             width: "100%",
