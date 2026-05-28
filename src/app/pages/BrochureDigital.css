@@ -1,0 +1,1090 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+.brochure-root {
+  position: fixed;
+  inset: 0;
+  background: #141410;
+  overflow: hidden;
+  font-family: 'Jost', sans-serif;
+  color: #F5F0E8;
+}
+
+.brochure-root * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS variables scoped to brochure */
+.brochure-root {
+  --ol: #2E3D1F;
+  --oll: #5A7235;
+  --cr: #F5F0E8;
+  --cm: #EDE5D3;
+  --gd: #B8943F;
+  --gl: #D4AF6A;
+  --wn: #6B1F2E;
+  --wh: #fff;
+  --dk: #141410;
+  --tl: #7A7A65;
+  --tx: rgba(46, 61, 31, 0.72);
+}
+
+.brochure-root nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 14px 24px;
+  pointer-events: none;
+}
+
+.brochure-root .nc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(20, 20, 16, .78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 5px 6px 5px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(184, 148, 63, .18);
+  pointer-events: all;
+}
+
+.brochure-root .sn {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, .45);
+  white-space: nowrap;
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+.brochure-root .np {
+  display: flex;
+  gap: 3px;
+}
+
+.brochure-root .pl {
+  padding: 5px 11px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .4);
+  border: none;
+  background: none;
+  transition: all .3s;
+}
+
+.brochure-root .pl.active {
+  background: var(--gd);
+  color: var(--ol);
+  font-weight: 600;
+}
+
+.brochure-root .slides {
+  width: 100%;
+  height: 100vh;
+}
+
+.brochure-root .sl {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s;
+}
+
+.brochure-root .sl.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.brochure-root footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(to top, rgba(20, 20, 16, .96), transparent);
+}
+
+.brochure-root .nb {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 148, 63, .4);
+  background: rgba(46, 61, 31, .6);
+  color: var(--gd);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: all .3s;
+}
+
+.brochure-root .nb:hover {
+  background: var(--gd);
+  color: var(--ol);
+}
+
+.brochure-root .dots {
+  display: flex;
+  gap: 5px;
+}
+
+.brochure-root .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .18);
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.brochure-root .dot.active {
+  background: var(--gd);
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* layout helpers */
+.brochure-root .fb {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.brochure-root .bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.brochure-root .ov-l {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(20, 20, 16, .92) 0%, rgba(20, 20, 16, .65) 44%, transparent 70%);
+}
+
+.brochure-root .ov-ol {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(46, 61, 31, .92) 0%, rgba(46, 61, 31, .65) 44%, transparent 70%);
+}
+
+.brochure-root .ov-b {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(to top, rgba(20, 20, 16, .97) 0%, rgba(20, 20, 16, .65) 55%, transparent 100%);
+}
+
+.brochure-root .cap-l {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 44%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 44px 80px 60px;
+}
+
+.brochure-root .cap-b {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 36px 60px 80px;
+}
+
+.brochure-root .pill {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  z-index: 10;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gl);
+  text-transform: uppercase;
+  border: 1px solid rgba(184, 148, 63, .3);
+  background: rgba(20, 20, 16, .82);
+}
+
+.brochure-root .ey {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gd);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.brochure-root .hero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px;
+  font-weight: 300;
+  line-height: .92;
+  color: var(--wh);
+}
+
+.brochure-root .txl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--wh);
+}
+
+.brochure-root .tlg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--wh);
+}
+
+.brochure-root .tlg-dk {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ol);
+}
+
+.brochure-root em {
+  color: var(--gl);
+}
+
+.brochure-root .gl- {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(to right, var(--gd), transparent);
+  margin: 12px 0;
+}
+
+.brochure-root .bd {
+  font-size: 11.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, .62);
+  font-weight: 300;
+}
+
+.brochure-root .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(184, 148, 63, .3);
+  border-radius: 4px;
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gl);
+  background: rgba(184, 148, 63, .06);
+}
+
+.brochure-root .srow {
+  display: flex;
+  gap: 24px;
+}
+
+.brochure-root .sv {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gd);
+  line-height: 1;
+}
+
+.brochure-root .sl2 {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .4);
+  margin-top: 2px;
+}
+
+.brochure-root .di {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 4px;
+}
+
+.brochure-root .di-t {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gd);
+  min-width: 36px;
+}
+
+.brochure-root .di-l {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, .65);
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+.brochure-root .ficha {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.brochure-root .cr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+
+.brochure-root .cr:last-child {
+  border: none;
+  padding-top: 10px;
+  border-top: 1px solid rgba(184, 148, 63, .25);
+}
+
+.brochure-root .cr-l {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, .45);
+  font-weight: 300;
+}
+
+.brochure-root .cr-v {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--cr);
+}
+
+.brochure-root .cr:last-child .cr-l {
+  color: var(--gl);
+  font-weight: 500;
+}
+
+.brochure-root .cr:last-child .cr-v {
+  color: var(--gd);
+  font-size: 20px;
+}
+
+.brochure-root .csel {
+  padding: 5px 11px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 9.5px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, .1);
+  background: none;
+  color: rgba(255, 255, 255, .38);
+  transition: all .3s;
+}
+
+.brochure-root .csel.active {
+  background: var(--gd);
+  color: var(--ol);
+  border-color: var(--gd);
+}
+
+@keyframes brochureSlideInRight {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes brochureSlideInLeft {
+  from {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes brochureScrollPulse {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: .7;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(5px);
+    opacity: 1;
+  }
+}
+
+@keyframes brochureKbFade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.brochure-root .sl.slide-from-right {
+  animation: brochureSlideInRight .38s ease forwards;
+}
+
+.brochure-root .sl.slide-from-left {
+  animation: brochureSlideInLeft .38s ease forwards;
+}
+
+/* portrait map only visible on mobile — hidden on desktop */
+.brochure-root .mobile-map-img {
+  display: none;
+}
+
+/* disclaimer badges with bottom:52px sit inside the footer — push above it */
+.brochure-root [style*="bottom:52px"][style*="max-width:480px"] {
+  bottom: 30px !important;
+}
+
+/* nav responsive: reduce pill size on medium desktops */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .brochure-root .pl {
+    padding: 4px 7px !important;
+    font-size: 7px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .brochure-root .nc {
+    padding: 4px 5px 4px 11px !important;
+    gap: 4px !important;
+  }
+
+  .brochure-root .sn {
+    font-size: 8px !important;
+    padding-right: 7px !important;
+  }
+
+  .brochure-root #fs-btn {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 960px) {
+  .brochure-root .pl {
+    padding: 3px 5px !important;
+    font-size: 6.5px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .brochure-root .sn {
+    display: none !important;
+  }
+
+  .brochure-root #fs-btn {
+    display: none !important;
+  }
+}
+
+/* fullscreen button */
+.brochure-root #fs-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 148, 63, .35);
+  background: rgba(46, 61, 31, .5);
+  color: var(--gd);
+  cursor: pointer;
+  font-size: 11px;
+  transition: all .3s;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+
+.brochure-root #fs-btn:hover {
+  background: var(--gd);
+  color: var(--ol);
+}
+
+/* keyboard hint */
+#kb-hint {
+  position: fixed;
+  bottom: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border: 1px solid rgba(184, 148, 63, .25);
+  border-radius: 20px;
+  background: rgba(20, 20, 16, .7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  color: rgba(212, 175, 106, .75);
+  font-family: 'Jost', sans-serif;
+  pointer-events: none;
+  animation: brochureKbFade 4s ease forwards;
+}
+
+#kb-hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(212, 175, 106, .4);
+  border-radius: 4px;
+  font-size: 9px;
+  background: rgba(255, 255, 255, .06);
+}
+
+/* scroll indicator */
+#scroll-hint {
+  position: fixed;
+  bottom: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  pointer-events: none;
+}
+
+#scroll-hint span {
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(212, 175, 106, .65);
+  font-family: 'Jost', sans-serif;
+}
+
+#scroll-hint svg {
+  animation: brochureScrollPulse 1.4s ease-in-out infinite;
+  color: rgba(212, 175, 106, .65);
+}
+
+/* section indicator */
+#sec-ind {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 201;
+  font-size: 7.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(212, 175, 106, .75);
+  font-family: 'Jost', sans-serif;
+  pointer-events: none;
+}
+
+/* landscape */
+@media (orientation: landscape) and (max-height: 500px) {
+  .brochure-root nav {
+    padding: 6px 16px;
+  }
+
+  .brochure-root footer {
+    padding: 6px 12px;
+    gap: 6px;
+  }
+
+  .brochure-root .nb {
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+  }
+
+  .brochure-root .dots {
+    gap: 3px;
+  }
+
+  .brochure-root .dot {
+    width: 3px;
+    height: 3px;
+  }
+
+  .brochure-root .dot.active {
+    width: 10px;
+  }
+
+  .brochure-root .hero {
+    font-size: 22px;
+  }
+
+  .brochure-root .txl {
+    font-size: 18px;
+  }
+
+  .brochure-root .tlg,
+  .brochure-root .tlg-dk {
+    font-size: 16px;
+  }
+
+  .brochure-root .cap-l {
+    padding: 44px 20px 52px !important;
+  }
+
+  .brochure-root .cap-b {
+    padding: 12px 20px 52px !important;
+  }
+
+  .brochure-root .ficha-right {
+    padding: 44px 20px 52px !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:51%"] {
+    padding: 44px 20px 52px !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:40%"] {
+    padding: 44px 20px 52px !important;
+  }
+
+  .brochure-root #s15 [style*="width:51%"],
+  .brochure-root #s15c [style*="width:51%"],
+  .brochure-root #s15b [style*="width:51%"],
+  .brochure-root #s15d [style*="width:51%"] {
+    padding: 44px 20px 52px !important;
+  }
+
+  .brochure-root #s14 [style*="width:44%"] {
+    padding: 44px 20px 8px !important;
+  }
+
+  .brochure-root #s14 [style*="width:56%"] {
+    padding: 4px 20px 52px !important;
+  }
+}
+
+@media(max-width:768px) {
+  .brochure-root nav {
+    padding: 8px 12px;
+  }
+
+  .brochure-root .nc {
+    display: none;
+  }
+
+  .brochure-root footer {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .brochure-root .nb {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .brochure-root .dots {
+    gap: 4px;
+  }
+
+  .brochure-root .dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .brochure-root .dot.active {
+    width: 14px;
+  }
+
+  .brochure-root .hero {
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .brochure-root .txl {
+    font-size: 24px;
+  }
+
+  .brochure-root .tlg {
+    font-size: 20px;
+  }
+
+  .brochure-root .tlg-dk {
+    font-size: 20px;
+  }
+
+  .brochure-root .bd {
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .brochure-root .ey {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  .brochure-root .gl- {
+    margin: 8px 0;
+  }
+
+  .brochure-root .badge {
+    font-size: 8px;
+    padding: 6px 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .brochure-root .srow {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brochure-root .sv {
+    font-size: 26px;
+  }
+
+  .brochure-root .sl2 {
+    font-size: 8px;
+  }
+
+  .brochure-root .di {
+    padding: 5px 8px;
+  }
+
+  .brochure-root .di-t {
+    font-size: 15px;
+  }
+
+  .brochure-root .di-l {
+    font-size: 9px;
+  }
+
+  .brochure-root .pill {
+    font-size: 7.5px;
+    padding: 4px 10px;
+    top: 12px;
+    left: 14px;
+  }
+
+  .brochure-root .cr-v {
+    font-size: 15px;
+  }
+
+  .brochure-root .csel {
+    font-size: 8.5px;
+    padding: 4px 9px;
+  }
+
+  .brochure-root .cap-l {
+    width: 100% !important;
+    padding: 64px 20px 75px !important;
+    justify-content: flex-end !important;
+    background: linear-gradient(to top, rgba(20, 20, 16, .97) 0%, rgba(20, 20, 16, .65) 55%, transparent 100%) !important;
+  }
+
+  .brochure-root .cap-b {
+    padding: 20px 20px 75px !important;
+  }
+
+  .brochure-root .ov-l,
+  .brochure-root .ov-ol {
+    background: linear-gradient(to top, rgba(20, 20, 16, .95) 0%, rgba(20, 20, 16, .5) 50%, transparent 100%);
+  }
+
+  .brochure-root .ficha {
+    align-items: flex-start;
+    padding-top: 64px;
+    overflow-y: auto;
+  }
+
+  .brochure-root .ficha-right {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 64px 20px 75px !important;
+    background: rgba(20, 20, 16, .92) !important;
+    overflow-y: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  /* info slide: s1 uses class="ficha-right" (width:49%) for its detail panel
+     — make it full-screen with cream background, override the dark .ficha-right rule */
+  .brochure-root .ficha-info-slide .ficha-right {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 5 !important;
+    display: flex !important;
+    background: var(--cr) !important;
+    color: var(--ol) !important;
+  }
+
+  /* s0b: landscape panorama — full width, natural height, anchored below pill */
+  .brochure-root #s0b .fb>img {
+    position: absolute !important;
+    top: 44px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: unset !important;
+    z-index: 1 !important;
+  }
+
+  /* fade the bottom edge of the image into the cream background */
+  .brochure-root #s0b .fb::after {
+    content: '';
+    position: absolute;
+    top: 200px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, #f5f0e8);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* s3 mobile: hide landscape map, show portrait map */
+  .brochure-root #s3>div>img:not(.mobile-map-img) {
+    display: none !important;
+  }
+
+  .brochure-root #s3 .mobile-map-img {
+    display: block !important;
+    position: absolute !important;
+    top: 44px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    z-index: 1 !important;
+  }
+
+  .brochure-root .amenities-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 16px 52px !important;
+    gap: 8px !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:54%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:52%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:60%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:49%"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:51%"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:40%"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="width:1px"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-plan-slide .ficha-right {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-plan-slide [style*="linear-gradient(to right"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:54%"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:52%"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:60%"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:1px"] {
+    display: none !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:51%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    z-index: 5 !important;
+    padding: 64px 24px 75px !important;
+    background: var(--cr) !important;
+    overflow-y: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .brochure-root .ficha-info-slide [style*="width:40%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    z-index: 5 !important;
+    padding: 64px 24px 75px !important;
+    overflow-y: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .brochure-root #s14>div {
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    height: 100vh !important;
+  }
+
+  .brochure-root #s14 [style*="width:44%"] {
+    width: 100% !important;
+    padding: 64px 24px 16px !important;
+    justify-content: flex-start !important;
+  }
+
+  .brochure-root #s14 [style*="width:56%"] {
+    width: 100% !important;
+    padding: 8px 24px 75px !important;
+    justify-content: flex-start !important;
+  }
+
+  .brochure-root #s15 [style*="width:52%"],
+  .brochure-root #s15c [style*="width:52%"],
+  .brochure-root #s15b [style*="width:52%"],
+  .brochure-root #s15d [style*="width:52%"] {
+    display: none !important;
+  }
+
+  .brochure-root #s15 [style*="width:51%"],
+  .brochure-root #s15c [style*="width:51%"],
+  .brochure-root #s15b [style*="width:51%"],
+  .brochure-root #s15d [style*="width:51%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    padding: 64px 24px 75px !important;
+    background: var(--cr) !important;
+    overflow-y: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  .brochure-root #s15e>div {
+    flex-direction: column !important;
+    overflow-y: auto !important;
+  }
+
+  .brochure-root #s15e [style*="width:42%"] {
+    width: 100% !important;
+    padding: 64px 24px 16px !important;
+  }
+
+  .brochure-root #s15e [style*="flex-direction:column"][style*="align-items:center"] {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  .brochure-root #s15e [style*="width:220px"] {
+    width: 120px !important;
+    height: 140px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .brochure-root #s15e [style*="width:1px"] {
+    display: none !important;
+  }
+
+  .brochure-root #s15e [style*="width:58%"] {
+    width: 100% !important;
+    padding: 16px 24px 75px !important;
+    justify-content: flex-start !important;
+  }
+
+  .brochure-root [style*="bottom:52px"][style*="max-width:480px"] {
+    display: none !important;
+  }
+
+  .brochure-root [style*="padding:42px 50px"] {
+    padding: 64px 16px 14px !important;
+  }
+
+  .brochure-root [style*="bottom:8%"] {
+    bottom: 75px !important;
+    right: 16px !important;
+    max-width: calc(100% - 32px) !important;
+  }
+}
