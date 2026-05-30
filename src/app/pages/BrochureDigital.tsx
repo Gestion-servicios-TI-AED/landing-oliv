@@ -5,9 +5,9 @@ import mobileMapSrc from '@/assets/mapa-mobile-oliv.webp';
 
 const DESKTOP_IDS = ['s0', 's0b', 's1', 's2', 's3', 's4', 's5', 's5b', 's6', 's7', 's8', 's10', 's11', 's11b', 's12', 's13', 's14', 's15', 's15c', 's15b', 's15e', 's15d'];
 const DESKTOP_T = 22;
-const DESKTOP_PM: Record<number, number> = { 0: 0, 1: 0, 2: 1, 3: 1, 4: 2, 5: 3, 6: 3, 7: 4, 8: 4, 9: 5, 10: 5, 11: 5, 12: 5, 13: 5, 14: 5, 15: 6, 16: 6, 17: 7, 18: 7, 19: 7, 20: 7, 21: 7 };
+const DESKTOP_PM: Record<number, number> = { 0: 0, 1: 0, 2: 1, 3: 1, 4: 2, 5: 3, 6: 3, 7: 3, 8: 4, 9: 4, 10: 5, 11: 5, 12: 5, 13: 5, 14: 5, 15: 6, 16: 6, 17: 7, 18: 7, 19: 7, 20: 7, 21: 7 };
 const SECTION_NAMES = ['Inicio', 'Urbanismo', 'Ubicación', 'Amenidades', 'Interiores', 'Planos', 'Inversión', 'Respaldo'];
-const FICHA_WL = new Set(['s1', 's8', 's10', 's11', 's12', 's13']);
+const FICHA_WL = new Set(['s10', 's11', 's12', 's13']);
 const CD: Record<string, number> = { B1: 320500000, A2: 485000000, R2: 493000000, R3: 697000000 };
 const fmt = (n: number) => '$' + n.toLocaleString('es-CO');
 

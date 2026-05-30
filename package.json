@@ -21,6 +21,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "4.7.0",
     "pdf-parse": "^2.4.5",
+    "playwright": "^1.60.0",
     "tailwindcss": "4.1.12",
     "vite": "6.3.5"
   },

@@ -20,7 +20,6 @@
   --ol: #2E3D1F;
   --oll: #5A7235;
   --cr: #F5F0E8;
-  --cm: #EDE5D3;
   --gd: #B8943F;
   --gl: #D4AF6A;
   --wn: #6B1F2E;
@@ -308,61 +307,6 @@
   background: rgba(184, 148, 63, .06);
 }
 
-.brochure-root .srow {
-  display: flex;
-  gap: 24px;
-}
-
-.brochure-root .sv {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--gd);
-  line-height: 1;
-}
-
-.brochure-root .sl2 {
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, .4);
-  margin-top: 2px;
-}
-
-.brochure-root .di {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 10px;
-  background: rgba(255, 255, 255, .05);
-  border: 1px solid rgba(255, 255, 255, .07);
-  border-radius: 4px;
-}
-
-.brochure-root .di-t {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--gd);
-  min-width: 36px;
-}
-
-.brochure-root .di-l {
-  font-size: 9.5px;
-  color: rgba(255, 255, 255, .65);
-  line-height: 1.3;
-  font-weight: 300;
-}
-
-.brochure-root .ficha {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
 
 .brochure-root .cr {
   display: flex;
@@ -414,9 +358,15 @@
 }
 
 .brochure-root .csel.active {
-  background: var(--gd);
-  color: var(--ol);
-  border-color: var(--gd);
+  background: var(--gd) !important;
+  color: var(--ol) !important;
+  border-color: var(--gd) !important;
+}
+
+/* s14 cotizador: fondo crema — botones inactivos visibles */
+.brochure-root #s14 .csel {
+  color: var(--tl);
+  border-color: rgba(46, 61, 31, .2);
 }
 
 @keyframes brochureSlideInRight {
@@ -493,6 +443,11 @@
 /* disclaimer badges with bottom:52px sit inside the footer — push above it */
 .brochure-root [style*="bottom:52px"][style*="max-width:480px"] {
   bottom: 30px !important;
+}
+
+/* s14 cotizador: separadores entre pasos visibles sobre fondo crema */
+.brochure-root #s14 [style*="border-bottom:1px solid rgba(255,255,255,.06)"] {
+  border-bottom-color: rgba(46, 61, 31, .12) !important;
 }
 
 /* nav responsive: reduce pill size on medium desktops */
@@ -785,30 +740,6 @@
     letter-spacing: 1.5px;
   }
 
-  .brochure-root .srow {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .brochure-root .sv {
-    font-size: 26px;
-  }
-
-  .brochure-root .sl2 {
-    font-size: 8px;
-  }
-
-  .brochure-root .di {
-    padding: 5px 8px;
-  }
-
-  .brochure-root .di-t {
-    font-size: 15px;
-  }
-
-  .brochure-root .di-l {
-    font-size: 9px;
-  }
 
   .brochure-root .pill {
     font-size: 7.5px;
@@ -858,41 +789,24 @@
     justify-content: flex-start !important;
   }
 
-  /* info slide: s1 uses class="ficha-right" (width:49%) for its detail panel
-     — make it full-screen with cream background, override the dark .ficha-right rule */
-  .brochure-root .ficha-info-slide .ficha-right {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 5 !important;
-    display: flex !important;
-    background: var(--cr) !important;
-    color: var(--ol) !important;
-  }
 
-  /* s0b: landscape panorama — full width, natural height, anchored below pill */
+  /* s0b mobile: imagen cubre toda la pantalla + caption HTML en la parte baja */
   .brochure-root #s0b .fb>img {
     position: absolute !important;
-    top: 44px !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: auto !important;
+    inset: 0 !important;
     width: 100% !important;
-    height: auto !important;
-    object-fit: unset !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
     z-index: 1 !important;
   }
 
-  /* fade the bottom edge of the image into the cream background */
   .brochure-root #s0b .fb::after {
-    content: '';
-    position: absolute;
-    top: 200px;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, #f5f0e8);
-    z-index: 2;
-    pointer-events: none;
+    display: none !important;
+  }
+
+  .brochure-root #s0b .s0b-caption {
+    display: flex !important;
   }
 
   /* s3 mobile: hide landscape map, show portrait map */
@@ -913,9 +827,45 @@
   }
 
   .brochure-root .amenities-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    padding: 0 16px 52px !important;
-    gap: 8px !important;
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 1fr !important;
+    padding: 0 16px 16px !important;
+    gap: 10px !important;
+  }
+
+  /* s5b mobile: tarjetas horizontales que llenan todo el espacio disponible */
+  .brochure-root #s5b .amenities-grid > div {
+    flex-direction: row !important;
+    height: auto !important;
+    min-height: 0 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+  }
+
+  .brochure-root #s5b .amenities-grid > div > div:first-child {
+    width: 38% !important;
+    flex: none !important;
+    height: 100% !important;
+    min-height: 120px !important;
+  }
+
+  .brochure-root #s5b .amenities-grid > div > div:first-child img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  .brochure-root #s5b .amenities-grid > div > div:last-child {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 0 16px !important;
+    background: rgba(20,20,16,.9) !important;
+    border-top: none !important;
+    border-left: 1px solid rgba(184,148,63,.15) !important;
   }
 
   .brochure-root .ficha-plan-slide [style*="width:54%"] {
@@ -1086,5 +1036,131 @@
     bottom: 75px !important;
     right: 16px !important;
     max-width: calc(100% - 32px) !important;
+  }
+
+  /* s1 mobile: imagen full-bleed difuminada con texto encima */
+  .brochure-root #s1 [style*="width:54%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    z-index: 1 !important;
+  }
+
+  .brochure-root #s1 [style*="width:54%"] .bg {
+    filter: blur(7px) brightness(0.7) !important;
+    transform: scale(1.08) !important;
+  }
+
+  .brochure-root #s1 [style*="width:54%"] [style*="linear-gradient"] {
+    background: rgba(245, 240, 232, 0.62) !important;
+  }
+
+  .brochure-root #s1 .ficha-right {
+    background: transparent !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    z-index: 3 !important;
+  }
+
+  /* s2 urbanismo: ocultar etiqueta LIVA en mobile (solapa con pill) */
+  .brochure-root #s2 [style*="top:8%"][style*="left:8%"] {
+    display: none !important;
+  }
+
+  /* s5b amenidades: ocultar texto subtítulo derecho en mobile */
+  .brochure-root #s5b [style*="font-size:13px"][style*="font-style:italic"] {
+    display: none !important;
+  }
+
+
+  /* s8 mobile: imagen full-bleed con gradiente vertical + texto al fondo */
+  .brochure-root #s8 [style*="width:52%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    z-index: 1 !important;
+  }
+
+  .brochure-root #s8 [style*="width:52%"] [style*="linear-gradient"] {
+    background: linear-gradient(to bottom, transparent 40%, rgba(245,240,232,.93) 82%) !important;
+  }
+
+  .brochure-root #s8 [style*="width:51%"] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    z-index: 2 !important;
+    background: transparent !important;
+    justify-content: flex-end !important;
+    padding: 64px 20px 80px !important;
+    overflow-y: auto !important;
+  }
+
+  /* s6/s7 interiores: ocultar badge derecho en cap-b (overflow en mobile) */
+  .brochure-root #s6 .cap-b [style*="padding:8px 16px"],
+  .brochure-root #s7 .cap-b [style*="padding:8px 16px"] {
+    display: none !important;
+  }
+
+  /* s11b SEIVA intro: reducir título de 44px a 28px en mobile */
+  .brochure-root #s11b [style*="font-size:44px"] {
+    font-size: 28px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* tablet: 769px – 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Planos s10/s11/s12/s13: reducir padding del panel de info (40% width) */
+  .brochure-root [style*="padding:56px 48px 56px 40px"] {
+    padding: 36px 20px 36px 20px !important;
+  }
+
+  /* Planos: reducir padding del panel de plano (60% width) */
+  .brochure-root [style*="padding:60px 20px 60px 40px"] {
+    padding: 40px 12px 40px 20px !important;
+  }
+
+  /* Planos: reducir tamaño del nombre LIVA/SEIVA (38px → 28px) */
+  .brochure-root [style*="padding:56px 48px 56px 40px"] [style*="font-size:38px"] {
+    font-size: 26px !important;
+  }
+
+  /* Planos: reducir tamaño Tipo A/B (28px → 22px) */
+  .brochure-root [style*="padding:56px 48px 56px 40px"] [style*="font-size:28px"] {
+    font-size: 20px !important;
+  }
+
+  /* Planos: grid de espacios a una columna en tablets pequeñas */
+  .brochure-root [style*="padding:56px 48px 56px 40px"] [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* s5b amenidades: 2 columnas en tablets (ya viene de desktop con 3) */
+  .brochure-root .amenities-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 30px 16px !important;
+  }
+
+  .brochure-root .amenities-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* s5b: limitar alto de imagen para que las 3 tarjetas quepan */
+  .brochure-root #s5b .amenities-grid > div > div:first-child {
+    height: 170px !important;
+    flex: none !important;
+  }
+
+  /* s5b: scroll por si acaso en tablets pequeñas */
+  .brochure-root #s5b > div {
+    overflow-y: auto !important;
+  }
+
+  /* s14 cotizador: reducir título en tablet para que no parta en dos líneas raras */
+  .brochure-root #s14 [style*="font-size:36px"] {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
   }
 }
