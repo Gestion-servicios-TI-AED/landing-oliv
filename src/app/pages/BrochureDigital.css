@@ -1108,6 +1108,20 @@
     font-size: 28px !important;
     line-height: 1.1 !important;
   }
+
+  /* trophy-bar: subir por encima del botón "VER DETALLES" (bottom:80px) en ficha-plan-slide
+     y agregar fondo semitransparente porque la imagen ocupa toda la pantalla en mobile */
+  .brochure-root .ficha-plan-slide .trophy-bar {
+    bottom: 122px !important;
+    background: rgba(245, 240, 232, 0.82) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border-radius: 4px !important;
+    margin: 0 16px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+  }
 }
 
 /* tablet: 769px – 1024px */
