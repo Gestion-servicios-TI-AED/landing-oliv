@@ -435,6 +435,15 @@
   animation: brochureSlideInLeft .38s ease forwards;
 }
 
+/* screenshot mode — hide all chrome */
+.brochure-root.screenshot-mode nav,
+.brochure-root.screenshot-mode footer,
+.brochure-root.screenshot-mode #kb-hint,
+.brochure-root.screenshot-mode #scroll-hint,
+.brochure-root.screenshot-mode #sec-ind {
+  display: none !important;
+}
+
 /* portrait map only visible on mobile — hidden on desktop */
 .brochure-root .mobile-map-img {
   display: none;
